@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Rizky Fatahillah — Portfolio | Ready for Take Off</title>
+<meta name="description" content="Portofolio pribadi Muhammad Rizky Fatahillah — Public Speaker, Content Creator, Mahasiswa Akuntansi Sektor Publik POLSRI, GenBI Sumatera Selatan.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: '#0B1F3A',
+          royal: '#163B6B',
+          gold: '#F5B700',
+          paper: '#F8FAFC',
+          mist: '#EEF2F7',
+        },
+        fontFamily: {
+          heading: ['Poppins', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+        },
+        borderRadius: {
+          '3xl': '1.75rem',
+        },
+        boxShadow: {
+          soft: '0 20px 60px -15px rgba(11,31,58,0.25)',
+          gold: '0 0 40px -8px rgba(245,183,0,0.45)',
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  :root{
+    --navy:#0B1F3A;
+    --royal:#163B6B;
+    --gold:#F5B700;
+    --paper:#F8FAFC;
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif; background:var(--paper); color:var(--navy);}
+  h1,h2,h3,h4,.font-heading{font-family:'Poppins',sans-serif;}
+
+  ::selection{background:var(--gold); color:var(--navy);}
+
+  /* Scrollbar */
+  ::-webkit-scrollbar{width:8px;}
+  ::-webkit-scrollbar-track{background:var(--paper);}
+  ::-webkit-scrollbar-thumb{background:var(--royal); border-radius:8px;}
+
+  /* Fade in on scroll */
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.show{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    *{animation:none !important; transition-duration:.01ms !important;}
+  }
+
+  /* Glassmorphism */
+  .glass{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,0.18);
+  }
+
+  /* Boarding pass perforation */
+  .perforated{position:relative;}
+  .perforated::before{
+    content:"";
+    position:absolute; left:0; right:0; top:0; height:0;
+    border-top:2px dashed rgba(248,250,252,0.35);
+  }
+  .punch{
+    position:absolute; width:26px; height:26px; background:var(--paper);
+    border-radius:9999px; top:50%; transform:translateY(-50%); z-index:10;
+  }
+
+  /* Hero sky gradient with subtle grid */
+  .sky-gradient{
+    background:
+      radial-gradient(1200px 600px at 85% -10%, rgba(245,183,0,0.15), transparent 60%),
+      radial-gradient(900px 500px at 10% 110%, rgba(22,59,107,0.55), transparent 60%),
+      linear-gradient(160deg, #0B1F3A 0%, #0E2647 45%, #163B6B 100%);
+  }
+  .grid-overlay{
+    background-image:
+      linear-gradient(rgba(248,250,252,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(248,250,252,0.05) 1px, transparent 1px);
+    background-size:48px 48px;
+  }
+
+  .flight-line{
+    stroke-dasharray: 8 8;
+    animation: dash 30s linear infinite;
+  }
+  @keyframes dash{ to{ stroke-dashoffset:-1000; } }
+
+  .plane-float{ animation: float 4s ease-in-out infinite; }
+  @keyframes float{
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    50%{ transform:translateY(-10px) rotate(2deg); }
+  }
+
+  .badge-chip{
+    transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+  }
+  .badge-chip:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px -10px rgba(11,31,58,0.35);
+  }
+
+  .gallery-card{ transition: transform .35s ease, box-shadow .35s ease; }
+  .gallery-card:hover{ transform: translateY(-10px); box-shadow: 0 28px 80px -25px rgba(11,31,58,0.35), 0 0 0 1px rgba(245,183,0,0.15); }
+  .gallery-card:hover .gallery-img{ transform: scale(1.07); }
+  .gallery-img{ transition: transform .5s ease; }
+  .gallery-overlay{ opacity:0; transform: translateY(12px); transition: opacity .35s ease, transform .35s ease; }
+  .gallery-card:hover .gallery-overlay{ opacity:1; transform: translateY(0); }
+
+  .nav-link{ position:relative; }
+  .nav-link::after{
+    content:""; position:absolute; left:0; bottom:-4px; width:0; height:2px;
+    background:var(--gold); transition:width .3s ease;
+  }
+  .nav-link:hover::after{ width:100%; }
+
+  .timeline-dot{ box-shadow:0 0 0 6px rgba(245,183,0,0.15); }
+
+  .ticket-edge{
+    background:
+      radial-gradient(circle at 0 50%, transparent 12px, var(--paper) 13px) left / 26px 100% no-repeat,
+      radial-gradient(circle at 100% 50%, transparent 12px, var(--paper) 13px) right / 26px 100% no-repeat;
+  }
+
+  /* Profile photo beneath the boarding pass */
+  .profile-photo-card{
+    background:linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.05));
+    border:1px solid rgba(255,255,255,.18);
+    box-shadow:0 18px 42px -22px rgba(0,0,0,.7);
+  }
+  .profile-photo-card img{filter:saturate(.92) contrast(1.04);}
+
+  /* Keep contact cards balanced in their responsive grid */
+  #contact .grid > a > div{min-width:0;}
+  #contact .grid > a > div > p:last-child{overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+
+  input:focus, textarea:focus, button:focus-visible, a:focus-visible{
+    outline:2px solid var(--gold); outline-offset:3px;
+  }
+</style>
+</head>
+
+<body class="bg-paper text-navy antialiased">
+
+<!-- ================= NAVBAR ================= -->
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <nav class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div id="navInner" class="mt-4 flex items-center justify-between rounded-3xl px-5 sm:px-7 py-3.5 bg-navy/90 backdrop-blur-md shadow-soft transition-all duration-300">
+      <a href="#home" class="flex items-center gap-2.5 font-heading text-white">
+        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-gold/15 text-gold">
+          <i data-lucide="plane" class="h-4.5 w-4.5" style="width:18px;height:18px;"></i>
+        </span>
+        <span class="text-sm sm:text-base font-bold tracking-wide">FATAH <span class="text-gold">AIRLINES</span></span>
+      </a>
+
+      <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-white/80">
+        <a href="#home" class="nav-link hover:text-white transition-colors">Home</a>
+        <a href="#about" class="nav-link hover:text-white transition-colors">About</a>
+        <a href="#experience" class="nav-link hover:text-white transition-colors">Experience</a>
+        <a href="#projects" class="nav-link hover:text-white transition-colors">Mission Control</a>
+        <a href="#gallery" class="nav-link hover:text-white transition-colors">Gallery</a>
+        <a href="#skills" class="nav-link hover:text-white transition-colors">Skills</a>
+        <a href="#contact" class="nav-link hover:text-white transition-colors">Contact</a>
+      </div>
+
+      <a href="#contact" class="hidden sm:inline-flex items-center gap-2 rounded-2xl bg-gold px-4 py-2.5 text-xs sm:text-sm font-bold text-navy shadow-gold hover:bg-white transition-colors">
+        <i data-lucide="ticket" style="width:16px;height:16px;"></i>
+        Boarding Pass
+      </a>
+
+      <button id="menuBtn" aria-label="Buka menu" class="lg:hidden text-white p-2">
+        <i data-lucide="menu" id="menuIcon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden lg:hidden mt-2 rounded-3xl bg-navy/95 backdrop-blur-md shadow-soft px-6 py-5 flex flex-col gap-4 text-white/90 text-sm font-medium">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#experience" class="mobile-link">Experience</a>
+      <a href="#gallery" class="mobile-link">Gallery</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="#contact" class="mt-1 inline-flex items-center justify-center gap-2 rounded-2xl bg-gold px-4 py-2.5 text-sm font-bold text-navy">
+        <i data-lucide="ticket" style="width:16px;height:16px;"></i> Boarding Pass
+      </a>
+    </div>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="relative min-h-screen sky-gradient overflow-hidden flex items-center pt-32 pb-20">
+  <div class="absolute inset-0 grid-overlay opacity-40"></div>
+
+  <!-- flight path svg -->
+  <svg class="absolute inset-0 w-full h-full opacity-30" preserveAspectRatio="none" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg">
+    <path class="flight-line" d="M -50 550 C 200 450, 400 620, 650 380 S 950 150, 1050 120" stroke="#F5B700" stroke-width="1.5" fill="none"/>
+  </svg>
+
+  <div class="absolute -top-10 -right-10 h-72 w-72 rounded-full bg-gold/10 blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 h-96 w-96 rounded-full bg-royal/40 blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-7xl w-full px-5 sm:px-8 grid lg:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
+
+    <div class="reveal">
+       <div class="flex flex-col items-start gap-4">
+        <!-- <div class="inline-flex items-center justify-center rounded-[2rem] bg-white p-4 shadow-soft border border-slate-200/80">
+          <img src="img/genbi/logogenbipolsri.png" alt="GenBI POLSRI Logo" class="h-20 w-auto sm:h-24 object-contain">
+        </div> -->
+        <span class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-semibold tracking-widest text-gold uppercase">
+          <i data-lucide="plane-takeoff" style="width:14px;height:14px;"></i>
+          Portfolio Ready for Take Off
+        </span>
+      </div>
+
+      <h1 class="font-heading mt-6 text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.08] text-white">
+        Muhammad Rizky <span class="text-gold">Fatahillah</span>
+      </h1>
+
+      <p class="mt-5 text-base sm:text-lg text-white/75 font-medium">
+        Public Speaker • Content Creator • Mahasiswa Akuntansi Sektor Publik • GenBI Sumatera Selatan
+      </p>
+
+      <p class="mt-4 max-w-xl text-white/60 leading-relaxed">
+        Membangun komunikasi, kepemimpinan, dan karya digital untuk siap terbang lebih tinggi.
+      </p>
+
+      <div class="mt-9 flex flex-wrap items-center gap-4">
+        <a href="#about" class="inline-flex items-center gap-2 rounded-2xl bg-gold px-6 py-3.5 text-sm font-bold text-navy shadow-gold hover:-translate-y-0.5 hover:shadow-lg transition-all">
+          Lihat Flight Journey
+          <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+        </a>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-2xl border border-white/25 px-6 py-3.5 text-sm font-bold text-white hover:bg-white/10 hover:-translate-y-0.5 transition-all">
+          Hubungi Saya
+          <i data-lucide="send" style="width:16px;height:16px;"></i>
+        </a>
+      </div>
+
+      <div class="mt-12 flex items-center gap-6 text-white/50 text-xs">
+        <div class="flex items-center gap-2"><i data-lucide="map-pin" style="width:15px;height:15px;"></i> Palembang, Indonesia</div>
+        <div class="hidden sm:flex items-center gap-2"><i data-lucide="graduation-cap" style="width:15px;height:15px;"></i> POLSRI</div>
+      </div>
+    </div>
+
+    <!-- Boarding pass card -->
+    <div class="reveal">
+      <div class="relative mx-auto max-w-sm rounded-3xl glass shadow-soft overflow-hidden text-white">
+        <div class="flex items-center justify-between px-6 pt-6">
+          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2">
+            <i data-lucide="plane" class="text-gold plane-float" style="width:22px;height:22px;"></i>
+            <span class="font-heading font-bold tracking-wide text-sm">FATAH AIRLINES</span>
+          </div>
+        </div>
+          <span class="text-[10px] font-semibold tracking-widest text-gold uppercase">Boarding Pass</span>
+        </div>
+
+        <div class="px-6 mt-6">
+          <p class="text-[10px] uppercase tracking-widest text-white/50">Passenger</p>
+          <p class="font-heading font-bold text-lg">Muhammad Rizky Fatahillah</p>
+        </div>
+
+        <div class="px-6 mt-6 flex items-center justify-between">
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-white/50">From</p>
+            <p class="font-heading font-bold text-xl">KWU</p>
+            <p class="text-[11px] text-white/50">Kewirausahaan</p>
+          </div>
+          <div class="flex-1 flex items-center px-3">
+            <div class="h-px flex-1 border-t border-dashed border-white/30"></div>
+            <i data-lucide="plane" class="text-gold mx-1 rotate-90" style="width:16px;height:16px;"></i>
+            <div class="h-px flex-1 border-t border-dashed border-white/30"></div>
+          </div>
+          <div class="text-right">
+            <p class="text-[10px] uppercase tracking-widest text-white/50">To</p>
+            <p class="font-heading font-bold text-xl">KJSM</p>
+            <p class="text-[11px] text-white/50">Kemitraan & Kerja Sama</p>
+          </div>
+        </div>
+
+        <div class="relative mt-7">
+          <div class="border-t-2 border-dashed border-white/25"></div>
+          <div class="punch -left-3"></div>
+          <div class="punch -right-3"></div>
+        </div>
+
+        <div class="px-6 py-6 grid grid-cols-2 gap-y-4 gap-x-3 text-xs">
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-white/50">Flight</p>
+            <p class="font-semibold">FTH 26</p>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-white/50">Seat</p>
+            <p class="font-semibold">CREATOR</p>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-white/50">Boarding</p>
+            <p class="font-semibold">2026</p>
+          </div>
+          <div>
+            <p class="text-[10px] uppercase tracking-widest text-white/50">Status</p>
+            <p class="font-semibold text-gold">Portfolio Ready</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ganti URL pada src di bawah ini dengan foto pribadi Anda. -->
+      <div class="profile-photo-card relative mx-auto mt-6 w-full max-w-xs overflow-hidden rounded-3xl p-3 text-white">
+        <div class="relative aspect-[3/4] overflow-hidden rounded-[1.15rem]">
+          <img
+            src="img/me.jpeg"
+            alt="Foto profil Muhammad Rizky Fatahillah"
+            class="h-full w-full object-cover object-center"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/15 to-transparent"></div>
+          <div class="absolute left-4 right-4 bottom-3 flex items-end justify-between gap-3">
+            <div>
+              <p class="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">Crew Profile</p>
+              <p class="font-heading text-sm font-bold">Ready for the next journey</p>
+            </div>
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gold text-navy shadow-gold">
+              <i data-lucide="camera" style="width:15px;height:15px;"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 hover:text-gold transition-colors">
+    <i data-lucide="chevron-down" class="animate-bounce"></i>
+  </a>
+</section>
+
+<!-- ================= ABOUT / FLIGHT JOURNEY ================= -->
+<section id="about" class="py-24 sm:py-32 bg-white relative">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <span class="text-xs font-bold tracking-[0.2em] text-royal uppercase">About Me</span>
+      <h2 class="font-heading mt-3 text-3xl sm:text-4xl font-extrabold text-navy">Flight Journey</h2>
+      <p class="mt-4 text-navy/60 leading-relaxed">
+        Perjalanan singkat menuju sosok yang aktif berbicara, berkarya, dan berorganisasi —
+        satu titik keberangkatan menuju banyak pencapaian.
+      </p>
+    </div>
+
+    <div class="mt-20 relative">
+      <!-- vertical line -->
+      <div class="absolute left-5 sm:left-1/2 top-0 bottom-0 w-px bg-royal/20 sm:-translate-x-1/2"></div>
+
+      <div class="space-y-14">
+
+        <div class="reveal relative pl-14 sm:pl-0 sm:grid sm:grid-cols-2 sm:gap-10 items-center">
+          <div class="sm:text-right sm:pr-10">
+            <div class="rounded-3xl bg-white shadow-soft p-6 border border-navy/5">
+              <p class="text-xs font-bold text-gold uppercase tracking-widest">2024 — Sekarang</p>
+              <h3 class="font-heading font-bold text-lg mt-1">Mahasiswa D4 Akuntansi Sektor Publik</h3>
+              <p class="text-sm text-navy/60 mt-2">Politeknik Negeri Sriwijaya — mendalami akuntansi sektor publik sembari aktif di kegiatan organisasi dan kreatif kampus.</p>
+            </div>
+          </div>
+          <div class="hidden sm:block"></div>
+          <span class="absolute left-5 sm:left-1/2 top-6 -translate-x-1/2 h-4 w-4 rounded-full bg-gold timeline-dot"></span>
+        </div>
+
+        <div class="reveal relative pl-14 sm:pl-0 sm:grid sm:grid-cols-2 sm:gap-10 items-center">
+          <div class="hidden sm:block"></div>
+          <div class="sm:pl-10">
+            <div class="rounded-3xl bg-white shadow-soft p-6 border border-navy/5">
+              <p class="text-xs font-bold text-gold uppercase tracking-widest">Aktif Berjalan</p>
+              <h3 class="font-heading font-bold text-lg mt-1">GenBI Sumatera Selatan</h3>
+              <p class="text-sm text-navy/60 mt-2">Berkontribusi dalam kegiatan komunitas Generasi Baru Indonesia, mendukung publikasi dan konten media sosial organisasi.</p>
+            </div>
+          </div>
+          <span class="absolute left-5 sm:left-1/2 top-6 -translate-x-1/2 h-4 w-4 rounded-full bg-gold timeline-dot"></span>
+        </div>
+
+        <div class="reveal relative pl-14 sm:pl-0 sm:grid sm:grid-cols-2 sm:gap-10 items-center">
+          <div class="sm:text-right sm:pr-10">
+            <div class="rounded-3xl bg-white shadow-soft p-6 border border-navy/5">
+              <p class="text-xs font-bold text-gold uppercase tracking-widest">Public Speaking & MC</p>
+              <h3 class="font-heading font-bold text-lg mt-1">Moderator & Master of Ceremony</h3>
+              <p class="text-sm text-navy/60 mt-2">Berpengalaman menjadi MC dan moderator di berbagai kegiatan organisasi, mengasah kemampuan komunikasi publik.</p>
+            </div>
+          </div>
+          <div class="hidden sm:block"></div>
+          <span class="absolute left-5 sm:left-1/2 top-6 -translate-x-1/2 h-4 w-4 rounded-full bg-gold timeline-dot"></span>
+        </div>
+
+        <div class="reveal relative pl-14 sm:pl-0 sm:grid sm:grid-cols-2 sm:gap-10 items-center">
+          <div class="hidden sm:block"></div>
+          <div class="sm:pl-10">
+            <div class="rounded-3xl bg-white shadow-soft p-6 border border-navy/5">
+              <p class="text-xs font-bold text-gold uppercase tracking-widest">Digital & Kreatif</p>
+              <h3 class="font-heading font-bold text-lg mt-1">Content Creation & Branding Digital</h3>
+              <p class="text-sm text-navy/60 mt-2">Menyusun konten media sosial organisasi, desain visual acara, serta pengembangan teknologi sederhana.</p>
+            </div>
+          </div>
+          <span class="absolute left-5 sm:left-1/2 top-6 -translate-x-1/2 h-4 w-4 rounded-full bg-gold timeline-dot"></span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE / CREW EXPERIENCE ================= -->
+<section id="experience" class="py-24 sm:py-32 bg-mist">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <span class="text-xs font-bold tracking-[0.2em] text-royal uppercase">Experience & Organization</span>
+      <h2 class="font-heading mt-3 text-3xl sm:text-4xl font-extrabold text-navy">Crew Experience</h2>
+      <p class="mt-4 text-navy/60 leading-relaxed">Rekam jejak sebagai bagian dari kru — organisasi, kepanitiaan, dan kepemimpinan.</p>
+    </div>
+
+    <div class="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="reveal rounded-3xl bg-white p-7 shadow-soft border border-navy/5 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-navy/5 text-royal"><i data-lucide="video" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-gold/15 text-gold px-3 py-1 rounded-full">PDD & Media</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">Anggota PDD</h3>
+        <p class="text-sm font-semibold text-royal">Musyawarah Besar BEM POLSRI</p>
+        <p class="text-xs text-navy/40 mt-1">2026</p>
+        <p class="text-sm text-navy/60 mt-3 leading-relaxed">Merancang bumper video untuk videotron</p>
+      </div>
+
+      <div class="reveal rounded-3xl bg-white p-7 shadow-soft border border-navy/5 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-navy/5 text-royal"><i data-lucide="megaphone" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-gold/15 text-gold px-3 py-1 rounded-full">PDD & Media</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">Anggota PDD</h3>
+        <p class="text-sm font-semibold text-royal">Open Recruitment LDK Karisma</p>
+        <p class="text-xs text-navy/40 mt-1">2026</p>
+        <p class="text-sm text-navy/60 mt-3 leading-relaxed">Membantu publikasi dan penyebaran informasi kegiatan, serta mendokumentasikan promosi dan pelaksanaan acara.</p>
+      </div>
+
+      <div class="reveal rounded-3xl bg-white p-7 shadow-soft border border-navy/5 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-navy/5 text-royal"><i data-lucide="users" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-gold/15 text-gold px-3 py-1 rounded-full">Organisasi</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">Wakil Kepala Divisi Learning Center</h3>
+        <p class="text-sm font-semibold text-royal">UKM Keluarga Tarbiyah Islamiyah</p>
+        <p class="text-xs text-navy/40 mt-1">2025</p>
+        <p class="text-sm text-navy/60 mt-3 leading-relaxed">Mengkoordinasi kegiatan pembinaan dan kelompok belajar mahasiswa, serta menyebarkan informasi kegiatan kepada anggota.</p>
+      </div>
+
+      <div class="reveal rounded-3xl bg-white p-7 shadow-soft border border-navy/5 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-navy/5 text-royal"><i data-lucide="languages" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-gold/15 text-gold px-3 py-1 rounded-full">Organisasi</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">Sekretaris Divisi Bahasa</h3>
+        <p class="text-sm font-semibold text-royal">OSMUS — Organisasi Santri Muqimus Sunnah</p>
+        <p class="text-xs text-navy/40 mt-1">2023</p>
+        <p class="text-sm text-navy/60 mt-3 leading-relaxed">Menyusun informasi dan dokumentasi program kebahasaan, serta membantu publikasi kegiatan divisi.</p>
+      </div>
+
+      <div class="reveal rounded-3xl bg-white p-7 shadow-soft border border-navy/5 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-navy/5 text-royal"><i data-lucide="trophy" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-gold/15 text-gold px-3 py-1 rounded-full">Prestasi</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">Juara 3 — Lomba Debat</h3>
+        <p class="text-sm font-semibold text-royal">PASCO Nasional</p>
+        <p class="text-xs text-navy/40 mt-1">2024</p>
+        <p class="text-sm text-navy/60 mt-3 leading-relaxed">Meraih peringkat ketiga dalam kompetisi debat berskala nasional, mengasah argumentasi dan berpikir kritis.</p>
+      </div>
+
+      <div class="reveal rounded-3xl bg-white p-7 shadow-soft border border-navy/5 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-navy/5 text-royal"><i data-lucide="lightbulb" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-gold/15 text-gold px-3 py-1 rounded-full">Kompetisi</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">Peserta Summit Nasional</h3>
+        <p class="text-sm font-semibold text-royal">Hult Prize Indonesia — Institut Teknologi Bandung</p>
+        <p class="text-xs text-navy/40 mt-1">2026</p>
+        <p class="text-sm text-navy/60 mt-3 leading-relaxed">Menyusun pitch deck dan presentasi ide bisnis untuk kompetisi kewirausahaan sosial berskala nasional.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS / MISSION CONTROL ================= -->
+<section id="projects" class="py-24 sm:py-32 bg-paper">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <span class="text-xs font-bold tracking-[0.2em] text-royal uppercase">Projects</span>
+      <h2 class="font-heading mt-3 text-3xl sm:text-4xl font-extrabold text-navy">Mission Control</h2>
+      <p class="mt-4 text-navy/60 leading-relaxed">Beberapa misi dan proyek nyata yang telah dijalankan dengan presisi.</p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+
+      <div class="reveal group rounded-3xl bg-navy p-7 text-white shadow-soft hover:shadow-gold transition-all duration-300">
+        <div class="flex items-start justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-gold"><i data-lucide="camera" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">GenBI & Museum</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">Konten GenBI & Museum SMB II</h3>
+        <p class="text-sm text-white/60 mt-2 leading-relaxed">Produksi konten media sosial edukatif seputar sejarah dan budaya untuk komunitas GenBI Sumatera Selatan.</p>
+        <a href="page/project-detail.html?project=genbi-museum" class="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-gold group-hover:gap-2.5 transition-all">View <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i></a>
+      </div>
+
+      <div class="reveal group rounded-3xl bg-navy p-7 text-white shadow-soft hover:shadow-gold transition-all duration-300">
+        <div class="flex items-start justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-gold"><i data-lucide="mic" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Public Speaking</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">MC & Public Speaking</h3>
+        <p class="text-sm text-white/60 mt-2 leading-relaxed">Memandu jalannya berbagai acara organisasi sebagai MC dan moderator dengan gaya komunikasi yang percaya diri.</p>
+        <a href="page/project-detail.html?project=mc-public-speaking" class="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-gold group-hover:gap-2.5 transition-all">View <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i></a>
+      </div>
+
+      <div class="reveal group rounded-3xl bg-navy p-7 text-white shadow-soft hover:shadow-gold transition-all duration-300">
+        <div class="flex items-start justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-gold"><i data-lucide="table" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Accounting</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">Excel VBA Accounting App</h3>
+        <p class="text-sm text-white/60 mt-2 leading-relaxed">Membangun aplikasi pencatatan akuntansi sederhana berbasis Excel VBA untuk mendukung studi akuntansi sektor publik.</p>
+        <a href="page/project-detail.html?project=excel-vba" class="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-gold group-hover:gap-2.5 transition-all">View <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i></a>
+      </div>
+
+      <div class="reveal group rounded-3xl bg-navy p-7 text-white shadow-soft hover:shadow-gold transition-all duration-300">
+        <div class="flex items-start justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-gold"><i data-lucide="layout-template" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Web</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">Personal Portfolio Website</h3>
+        <p class="text-sm text-white/60 mt-2 leading-relaxed">Merancang situs portofolio pribadi bertema aviation menggunakan HTML dan Tailwind CSS.</p>
+        <a href="page/project-detail.html?project=portfolio-web" class="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-gold group-hover:gap-2.5 transition-all">View <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i></a>
+      </div>
+
+      <div class="reveal group rounded-3xl bg-navy p-7 text-white shadow-soft hover:shadow-gold transition-all duration-300">
+        <div class="flex items-start justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-gold"><i data-lucide="palette" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Design</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">Desain Konten Media Sosial</h3>
+        <p class="text-sm text-white/60 mt-2 leading-relaxed">Merancang materi visual dan pitch deck untuk kebutuhan publikasi organisasi dan kompetisi.</p>
+        <a href="page/project-detail.html?project=social-design" class="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-gold group-hover:gap-2.5 transition-all">View <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i></a>
+      </div>
+
+      <div class="reveal group rounded-3xl bg-navy p-7 text-white shadow-soft hover:shadow-gold transition-all duration-300">
+        <div class="flex items-start justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-gold"><i data-lucide="film" style="width:20px;height:20px;"></i></span>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-white/10 px-3 py-1 rounded-full">Video</span>
+        </div>
+        <h3 class="font-heading font-bold text-lg mt-5">Video Editing Project</h3>
+        <p class="text-sm text-white/60 mt-2 leading-relaxed">Menyunting bumper video dan konten dokumentasi acara menggunakan CapCut dengan sentuhan motion graphic dasar.</p>
+        <a href="page/project-detail.html?project=video-editing" class="mt-5 inline-flex items-center gap-1.5 text-xs font-bold text-gold group-hover:gap-2.5 transition-all">View <i data-lucide="arrow-up-right" style="width:14px;height:14px;"></i></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY / CREATIVE FLIGHT LOG ================= -->
+<section id="gallery" class="py-24 sm:py-32 bg-mist">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <span class="text-xs font-bold tracking-[0.2em] text-royal uppercase">Design Portfolio</span>
+      <h2 class="font-heading mt-3 text-3xl sm:text-4xl font-extrabold text-navy">Creative Flight Log</h2>
+      <p class="mt-4 text-navy/60 leading-relaxed">Beberapa karya desain dan media publikasi yang telah saya buat untuk organisasi, event, branding, dan konten digital.</p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+
+      <div class="reveal gallery-card flex h-full flex-col rounded-3xl overflow-hidden bg-white shadow-soft border border-navy/5 cursor-pointer">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="img/videokonten/oprecldk.jpeg" alt="Open Recruitment LDK Karisma 2026" class="gallery-img absolute inset-0 h-full w-full object-cover">
+          <div class="gallery-overlay absolute inset-0 bg-navy/80 flex flex-col items-center justify-center gap-3 text-white text-center px-4">
+            <i data-lucide="plane" class="text-gold" style="width:20px;height:20px;"></i>
+            <p class="font-heading font-bold text-sm">Open Recruitment LDK Karisma 2026</p>
+            <p class="text-[11px] text-gold uppercase tracking-widest">Video Konten</p>
+          </div>
+        </div>
+        <div class="mt-auto p-5">
+          <p class="font-heading font-bold text-sm">Open Recruitment LDK Karisma 2026</p>
+          <p class="text-xs text-navy/50 mt-1">Video Konten · 2026</p>
+        </div>
+      </div>
+
+      <div class="reveal gallery-card flex h-full flex-col rounded-3xl overflow-hidden bg-white shadow-soft border border-navy/5 cursor-pointer">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="img/video/mubes.jpeg" alt="Musyawarah BEM POLSRI 2026" class="gallery-img absolute inset-0 h-full w-full object-cover">
+          <div class="gallery-overlay absolute inset-0 bg-navy/80 flex flex-col items-center justify-center gap-3 text-white text-center px-4">
+            <i data-lucide="plane" class="text-gold" style="width:20px;height:20px;"></i>
+            <p class="font-heading font-bold text-sm">Musyawarah BEM POLSRI 2026</p>
+            <p class="text-[11px] text-gold uppercase tracking-widest">Bumper Design</p>
+          </div>
+        </div>
+        <div class="mt-auto p-5">
+          <p class="font-heading font-bold text-sm">Musyawarah BEM POLSRI 2026</p>
+          <p class="text-xs text-navy/50 mt-1">Bumper Design · 2026</p>
+        </div>
+      </div>
+
+      <div class="reveal gallery-card flex h-full flex-col rounded-3xl overflow-hidden bg-white shadow-soft border border-navy/5 cursor-pointer">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="img/kontenmedsos/st.jpeg" alt="Sarang Tumbuh Feeds Design" class="gallery-img absolute inset-0 h-full w-full object-cover">
+          <div class="gallery-overlay absolute inset-0 bg-navy/80 flex flex-col items-center justify-center gap-3 text-white text-center px-4">
+            <i data-lucide="plane" class="text-gold" style="width:20px;height:20px;"></i>
+            <p class="font-heading font-bold text-sm">Sarang Tumbuh</p>
+            <p class="text-[11px] text-gold uppercase tracking-widest">Feeds Design</p>
+          </div>
+        </div>
+        <div class="mt-auto p-5">
+          <p class="font-heading font-bold text-sm">Sarang Tumbuh</p>
+          <p class="text-xs text-navy/50 mt-1">Feeds Design · 2025</p>
+        </div>
+      </div>
+
+      <div class="reveal gallery-card flex h-full flex-col rounded-3xl overflow-hidden bg-white shadow-soft border border-navy/5 cursor-pointer">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="img/webportofolio/web.png" alt="Portfolio Website UI" class="gallery-img absolute inset-0 h-full w-full object-cover">
+          <div class="gallery-overlay absolute inset-0 bg-navy/80 flex flex-col items-center justify-center gap-3 text-white text-center px-4">
+            <i data-lucide="plane" class="text-gold" style="width:20px;height:20px;"></i>
+            <p class="font-heading font-bold text-sm">Portfolio Website UI</p>
+            <p class="text-[11px] text-gold uppercase tracking-widest">Web Design</p>
+          </div>
+        </div>
+        <div class="mt-auto p-5">
+          <p class="font-heading font-bold text-sm">Portfolio Website UI</p>
+          <p class="text-xs text-navy/50 mt-1">Web Design · 2026</p>
+        </div>
+      </div>
+
+      <div class="reveal gallery-card flex h-full flex-col rounded-3xl overflow-hidden bg-white shadow-soft border border-navy/5 cursor-pointer">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="img/genbi/genbitalent.jpeg" alt="GenBI Talent" class="gallery-img absolute inset-0 h-full w-full object-cover">
+          <div class="gallery-overlay absolute inset-0 bg-navy/80 flex flex-col items-center justify-center gap-3 text-white text-center px-4">
+            <i data-lucide="plane" class="text-gold" style="width:20px;height:20px;"></i>
+            <p class="font-heading font-bold text-sm">GenBI Talent</p>
+            <p class="text-[11px] text-gold uppercase tracking-widest">Event Talent</p>
+          </div>
+        </div>
+        <div class="mt-auto p-5">
+          <p class="font-heading font-bold text-sm">GenBI Talent</p>
+          <p class="text-xs text-navy/50 mt-1">Event Talent · 2026</p>
+        </div>
+      </div>
+
+      <div class="reveal gallery-card flex h-full flex-col rounded-3xl overflow-hidden bg-white shadow-soft border border-navy/5 cursor-pointer">
+        <div class="relative aspect-[4/5] overflow-hidden">
+          <img src="img/publicspeaker/speaker1.jpeg" alt="Public Speaker Promotion" class="gallery-img absolute inset-0 h-full w-full object-cover">
+          <div class="gallery-overlay absolute inset-0 bg-navy/80 flex flex-col items-center justify-center gap-3 text-white text-center px-4">
+            <i data-lucide="plane" class="text-gold" style="width:20px;height:20px;"></i>
+            <p class="font-heading font-bold text-sm">Public Speaker Promotion</p>
+            <p class="text-[11px] text-gold uppercase tracking-widest">Campaign Design</p>
+          </div>
+        </div>
+        <div class="mt-auto p-5">
+          <p class="font-heading font-bold text-sm">Public Speaker Promotion</p>
+          <p class="text-xs text-navy/50 mt-1">Campaign Design · 2025</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="reveal mt-14 text-center">
+      <button class="inline-flex items-center gap-2 rounded-2xl bg-navy px-7 py-3.5 text-sm font-bold text-white hover:bg-royal transition-colors">
+        Lihat Semua Karya
+        <i data-lucide="arrow-right" style="width:16px;height:16px;"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" class="py-24 sm:py-32 bg-paper">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <span class="text-xs font-bold tracking-[0.2em] text-royal uppercase">Skills</span>
+      <h2 class="font-heading mt-3 text-3xl sm:text-4xl font-extrabold text-navy">Flight Instruments</h2>
+      <p class="mt-4 text-navy/60 leading-relaxed">Keterampilan yang menjadi instrumen navigasi dalam setiap perjalanan karya.</p>
+    </div>
+
+    <div class="reveal mt-14 flex flex-wrap justify-center gap-3 sm:gap-4">
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="mic-2" style="width:16px;height:16px;" class="text-gold"></i>Public Speaking</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="message-circle" style="width:16px;height:16px;" class="text-gold"></i>Communication</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="crown" style="width:16px;height:16px;" class="text-gold"></i>Leadership</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="sparkles" style="width:16px;height:16px;" class="text-gold"></i>Content Creation</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="film" style="width:16px;height:16px;" class="text-gold"></i>Video Editing</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="palette" style="width:16px;height:16px;" class="text-gold"></i>Canva</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="clapperboard" style="width:16px;height:16px;" class="text-gold"></i>CapCut</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="share-2" style="width:16px;height:16px;" class="text-gold"></i>Social Media</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="table" style="width:16px;height:16px;" class="text-gold"></i>Excel</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="code-2" style="width:16px;height:16px;" class="text-gold"></i>Basic Excel VBA</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="calculator" style="width:16px;height:16px;" class="text-gold"></i>Accounting</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="code" style="width:16px;height:16px;" class="text-gold"></i>Basic HTML</span>
+      <span class="badge-chip flex items-center gap-2 rounded-2xl bg-navy text-white px-5 py-3 text-sm font-semibold"><i data-lucide="wind" style="width:16px;height:16px;" class="text-gold"></i>Basic Tailwind CSS</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="py-24 sm:py-32 sky-gradient relative overflow-hidden">
+  <div class="absolute inset-0 grid-overlay opacity-20"></div>
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <span class="text-xs font-bold tracking-[0.2em] text-gold uppercase">Contact</span>
+      <h2 class="font-heading mt-3 text-3xl sm:text-4xl font-extrabold text-white">Ready for Departure</h2>
+      <p class="mt-4 text-white/60 leading-relaxed">Mari terhubung dan mulai perjalanan kolaborasi berikutnya.</p>
+    </div>
+
+    <div class="mt-16">
+
+      <div class="reveal grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <a href="mailto:murifat22@gmail.com" class="flex items-center gap-4 rounded-3xl glass p-5 text-white hover:bg-white/10 transition-colors">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold/15 text-gold"><i data-lucide="mail" style="width:20px;height:20px;"></i></span>
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-white/50">Email</p>
+            <p class="font-semibold text-sm">murifat22@gmail.com</p>
+          </div>
+        </a>
+        <a href="https://wa.me/6281379128755" target="_blank" rel="noopener" class="flex items-center gap-4 rounded-3xl glass p-5 text-white hover:bg-white/10 transition-colors">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold/15 text-gold"><i class="fa-brands fa-whatsapp text-xl" aria-hidden="true"></i></span>
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-white/50">WhatsApp</p>
+            <p class="font-semibold text-sm">+62 813-7912-8755</p>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/fakyhann/" target="_blank" rel="noopener" aria-label="Buka Instagram @fakyhann" class="flex items-center gap-4 rounded-3xl glass p-5 text-white hover:bg-white/10 transition-colors">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold/15 text-gold"><i class="fa-brands fa-instagram text-xl" aria-hidden="true"></i></span>
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-white/50">Instagram</p>
+            <p class="font-semibold text-sm">@fakyhann</p>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@murifat22" target="_blank" rel="noopener" aria-label="Buka TikTok @murifat22" class="flex items-center gap-4 rounded-3xl glass p-5 text-white hover:bg-white/10 transition-colors">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold/15 text-gold"><i class="fa-brands fa-tiktok text-lg" aria-hidden="true"></i></span>
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-white/50">TikTok</p>
+            <p class="font-semibold text-sm">@murifat22</p>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/search/results/people/?keywords=Muhammad%20Rizky%20Fatahillah" target="_blank" rel="noopener" aria-label="Cari profil LinkedIn Muhammad Rizky Fatahillah" class="flex items-center gap-4 rounded-3xl glass p-5 text-white hover:bg-white/10 transition-colors">
+          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold/15 text-gold"><i class="fa-brands fa-linkedin-in text-xl" aria-hidden="true"></i></span>
+          <div>
+            <p class="text-[11px] uppercase tracking-widest text-white/50">LinkedIn</p>
+            <p class="font-semibold text-sm">Muhammad Rizky Fatahillah</p>
+          </div>
+        </a>
+      </div>
+
+     
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-navy py-10">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 text-white/60 text-sm">
+        <i data-lucide="plane" class="text-gold" style="width:16px;height:16px;"></i>
+        FATAH AIRLINES
+      </div>
+      <p class="text-white/40 text-xs text-center">© 2026 Muhammad Rizky Fatahillah — Ready for Take Off ✈️</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+
+  // Navbar scroll shrink
+  const navInner = document.getElementById('navInner');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navInner.classList.add('shadow-xl');
+    } else {
+      navInner.classList.remove('shadow-xl');
+    }
+  });
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+  menuBtn.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    menuIcon.setAttribute('data-lucide', isHidden ? 'x' : 'menu');
+    lucide.createIcons();
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuIcon.setAttribute('data-lucide', 'menu');
+      lucide.createIcons();
+    });
+  });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Documentation — Fatah Airlines</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { navy:'#0B1F3A', royal:'#163B6B', gold:'#F5B700', paper:'#F8FAFC' }, fontFamily: { heading:['Poppins','sans-serif'], body:['Inter','sans-serif'] }, boxShadow:{ soft:'0 20px 60px -15px rgba(11,31,58,.22)' } } } }
+  </script>
+  <style>
+    body{font-family:Inter,sans-serif;background:#F8FAFC;color:#0B1F3A}.font-heading{font-family:Poppins,sans-serif}
+    .photo-card img{transition:transform .45s ease}.photo-card:hover img{transform:scale(1.05)}
+  </style>
+</head>
+<body>
+  <header class="sticky top-0 z-10 border-b border-white/10 bg-navy/95 backdrop-blur">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+      <a href="../index.html#projects" class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-gold transition-colors"><i data-lucide="arrow-left" style="width:17px;height:17px"></i>Kembali ke Mission Control</a>
+      <span class="font-heading text-sm font-bold tracking-wide text-white">FATAH <span class="text-gold">AIRLINES</span></span>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24">
+    <div class="max-w-2xl">
+      <p id="category" class="text-xs font-bold uppercase tracking-[.2em] text-royal"></p>
+      <h1 id="title" class="font-heading mt-3 text-3xl font-extrabold leading-tight sm:text-5xl"></h1>
+      <p id="description" class="mt-5 text-base leading-relaxed text-navy/65 sm:text-lg"></p>
+    </div>
+
+    <div class="mt-12 flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-2xl bg-gold/15 text-gold"><i data-lucide="images" style="width:19px;height:19px"></i></span>
+      <div><h2 class="font-heading font-bold">Dokumentasi Project</h2><p class="text-xs text-navy/50">Kumpulan visual kegiatan dan proses kreatif</p></div>
+    </div>
+    <div id="gallery" class="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </main>
+
+  <footer class="border-t border-navy/10 py-7 text-center text-xs text-navy/50">© 2026 Muhammad Rizky Fatahillah</footer>
+
+  <script>
+    const projects = {
+      'genbi-museum': { category:'GenBI & Museum', title:'Konten GenBI & Museum SMB II', description:'Dokumentasi proses produksi konten edukatif tentang sejarah dan budaya bersama GenBI Sumatera Selatan.', photos:['../img/genbi/genbitalent.jpeg'] },
+      'mc-public-speaking': { category:'Public Speaking', title:'MC & Public Speaking', description:'Dokumentasi momen saat memandu acara, membangun interaksi audiens, dan mengelola jalannya kegiatan.', photos:['../img/publicspeaker/speaker.jpeg','../img/publicspeaker/speaker1.jpeg'] },
+      'excel-vba': { category:'Accounting', title:'Excel VBA Accounting App', description:'Dokumentasi pengembangan aplikasi pencatatan akuntansi sederhana berbasis Microsoft Excel VBA.', photos:['../img/excelvba/excelvba.png'] },
+      'portfolio-web': { category:'Web', title:'Personal Portfolio Website', description:'Dokumentasi rancangan dan proses pengembangan website portofolio bertema aviation.', photos:['../img/webportofolio/web.png'] },
+      'social-design': { category:'Design', title:'Desain Konten Media Sosial', description:'Dokumentasi materi visual, desain publikasi, dan pitch deck untuk organisasi maupun kompetisi.', photos:['../img/kontenmedsos/st.jpeg'] },
+      'video-editing': { category:'Video', title:'Video Editing Project', description:'Dokumentasi proses penyuntingan video, penyusunan visual, dan motion graphic untuk kebutuhan acara.', photos:['../img/video/Final Comp_1.mp4','../img/video/MC FORMAL.mp4'] }
+    };
+    const key = new URLSearchParams(location.search).get('project');
+    const project = projects[key] || projects['genbi-museum'];
+    document.title = project.title + ' — Fatah Airlines';
+    document.getElementById('category').textContent = project.category;
+    document.getElementById('title').textContent = project.title;
+    document.getElementById('description').textContent = project.description;
+    document.getElementById('gallery').innerHTML = project.photos.length ? project.photos.map((image, index) => {
+      const isVideo = image.toLowerCase().endsWith('.mp4');
+      return `
+      <figure class="photo-card overflow-hidden rounded-3xl bg-white shadow-soft">
+        <div class="flex min-h-64 items-center justify-center overflow-hidden bg-navy">
+          ${isVideo ? `<video class="max-h-[34rem] w-full object-contain" src="${image}" autoplay muted loop playsinline controls></video>` : `<img class="max-h-[34rem] w-full object-contain" src="${image}" alt="Dokumentasi ${project.title} ${index + 1}">`}
+        </div>
+        <figcaption class="px-5 py-4 text-sm font-semibold text-navy">Dokumentasi ${String(index + 1).padStart(2, '0')}</figcaption>
+      </figure>`;
+    }).join('') : '<div class="rounded-3xl border border-dashed border-navy/20 bg-white p-8 text-sm text-navy/55">Foto dokumentasi untuk proyek ini belum tersedia.</div>';
+    lucide.createIcons();
+  </script>
+</body>
+</html>
